@@ -1,3 +1,10 @@
 #!/usr/bin/with-contenv bash
 
-exec s6-setuidgid abc hydroxide $HYDROXIDE_CMD $HYDROXIDE_FLAGS
+set -xeo pipefail
+
+XDG_CONFIG_HOME="/config"
+HYDROXIDE_CMD=${HYDROXIDE_CMD:-serve}
+HYDROXIDE_FLAGS=${HYDROXIDE_FLAGS:-"-smtp-host 0.0.0.0 -imap-host 0.0.0.0 -carddav-host 0.0.0.0"}
+
+exec \
+    s6-setuidgid abc hydroxide $HYDROXIDE_FLAGS $HYDROXIDE_CMD

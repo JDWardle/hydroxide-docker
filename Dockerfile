@@ -15,8 +15,8 @@ RUN mkdir -p /config/hydroxide
 
 COPY --from=builder /go/hydroxide/hydroxide /usr/local/bin
 
-ENV HYDROXIDE_CMD=serve
-ENV HYDROXIDE_FLAGS=""
+ENV HYDROXIDE_CMD="serve"
+ENV HYDROXIDE_FLAGS="-smtp-host 0.0.0.0 -imap-host 0.0.0.0 -carddav-host 0.0.0.0"
 
 VOLUME /config/hydroxide
 
