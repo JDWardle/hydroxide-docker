@@ -11,6 +11,8 @@ RUN git clone https://github.com/emersion/hydroxide.git \
 
 FROM lsiobase/alpine:3.12
 
+LABEL maintainer="jesse@wardle.dev"
+
 RUN mkdir -p /config/hydroxide
 
 COPY --from=builder /go/hydroxide/hydroxide /usr/local/bin
