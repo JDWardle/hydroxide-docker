@@ -2,7 +2,7 @@
 
 set -xeo pipefail
 
-XDG_CONFIG_HOME="/config"
+export XDG_CONFIG_HOME="/config"
 HYDROXIDE_CMD=${HYDROXIDE_CMD:-serve}
 HYDROXIDE_FLAGS=${HYDROXIDE_FLAGS:-"-smtp-host 0.0.0.0 -imap-host 0.0.0.0 -carddav-host 0.0.0.0"}
 
